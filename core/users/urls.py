@@ -1,9 +1,10 @@
-from django.urls import path, include
-from . import views
-
-app_name = "users"
+from django.urls import path
+from django.contrib.auth.views import LogoutView
+from .views import MyLoginView, RegisterView
+ 
 
 urlpatterns = [
-    path("api/", include("users.api.urls")),
-    path("login/", views.indexView, name="authentication"),
+    path('login/', MyLoginView.as_view(),name='login'),
+    path('logout/', LogoutView.as_view(next_page='login'),name='logout'),
+    path('register/', RegisterView.as_view(),name='register'),
 ]
