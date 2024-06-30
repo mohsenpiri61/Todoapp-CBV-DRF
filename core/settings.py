@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'users',
     "rest_framework",
     "corsheaders",
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -131,6 +132,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 LOGIN_URL = 'login'
+
 
 # REST_FRAMEWORK = {
 #     "DEFAULT_AUTHENTICATION_CLASSES": [
