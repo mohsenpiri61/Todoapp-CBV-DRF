@@ -10,7 +10,7 @@ class RegisterView(FormView):
     template_name = 'users/register.html'
     form_class = RegisterForm
     redirect_authenticated_user = True
-    success_url = reverse_lazy('tasks')
+    success_url = reverse_lazy('todo:task-list')
     
     def form_valid(self, form):
         user = form.save()
@@ -25,7 +25,7 @@ class MyLoginView(LoginView):
     redirect_authenticated_user = True
     
     def get_success_url(self):
-        return reverse_lazy('tasks') 
+        return reverse_lazy('todo:task-list') 
     
     def form_invalid(self, form):
         messages.error(self.request, 'Invalid username or password')
