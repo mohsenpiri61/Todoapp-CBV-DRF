@@ -5,3 +5,5 @@ django-cors-headers
 markdown
 django-filter
 drf-yasg[validation]
+pytest
+pytest-django
