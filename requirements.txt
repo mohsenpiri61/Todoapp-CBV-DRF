@@ -5,5 +5,9 @@ django-cors-headers
 markdown
 django-filter
 drf-yasg[validation]
+<<<<<<< HEAD
 pytest
 pytest-django
+=======
+djangorestframework-simplejwt
+>>>>>>> 127a34e2a0d374d689ca5626940f1f1cfceb7be7
