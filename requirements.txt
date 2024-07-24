@@ -8,4 +8,4 @@ drf-yasg[validation]
 pytest
 pytest-django
 djangorestframework-simplejwt
-
+faker
