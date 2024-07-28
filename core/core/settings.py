@@ -144,3 +144,7 @@ REST_FRAMEWORK = {
         
     ]
 }
+
+
+# celery configs
+CELERY_BROKER_URL = "redis://redis:6379/1"
