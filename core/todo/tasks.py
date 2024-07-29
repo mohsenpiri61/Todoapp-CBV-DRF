@@ -4,7 +4,7 @@ from .models import Task
 
 @shared_task
 def erasetasks():
-    task_obj = Task.objects.all()
-    task_obj.delete()
+    task_objs = Task.objects.all()
+    task_objs.delete()
     sleep(10)
     print("Tasks removing done")

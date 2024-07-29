@@ -9,3 +9,5 @@ pytest
 pytest-django
 djangorestframework-simplejwt
 faker
+celery
+redis

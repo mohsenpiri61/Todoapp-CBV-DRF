@@ -148,3 +148,12 @@ REST_FRAMEWORK = {
 
 # celery configs
 CELERY_BROKER_URL = "redis://redis:6379/1"
+
+from celery.schedules import crontab
+
+CELERY_BEAT_SCHEDULE = {
+    'your_periodic_task_name': {
+        'task': 'todo.tasks.erasetasks',
+        'schedule': crontab(minute='*/10'),  # Schedule the task to run every minute
+    },
+}
