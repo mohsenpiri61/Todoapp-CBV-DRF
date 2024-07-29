@@ -6,5 +6,4 @@ from .models import Task
 def erasetasks():
     task_objs = Task.objects.all()
     task_objs.delete()
-    sleep(10)
     print("Tasks removing done")
