@@ -22,7 +22,8 @@ services:
     environment:
       - SECRET_KEY=django-insecure-i-)wn-&f78ty!z7@hou(ft&%4pvlk+tzl4!g4&-1em7(q66da=
       - DEBUG=True
-
+    depends_on:
+      - redis
 
   worker:
     build: .
