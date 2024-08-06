@@ -11,4 +11,3 @@ djangorestframework-simplejwt
 faker
 celery
 redis
-django-redis
