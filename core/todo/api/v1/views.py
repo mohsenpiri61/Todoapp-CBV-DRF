@@ -3,17 +3,24 @@ from todo.models import Task
 from .serializers import TaskSerializer
 from rest_framework import permissions
 from rest_framework import viewsets
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
+import time 
 
 
+
+@method_decorator(cache_page(60 * 60 * 2), 'dispatch')
 class TodoListView(viewsets.ModelViewSet):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+    
     def list(self, request):
         # Note the use of `get_queryset()` instead of `self.queryset`
         queryset = self.get_queryset()
         serializer = TaskSerializer(queryset, many=True)
+        time.sleep(5)
         return Response(serializer.data)
 
     def get_queryset(self, *args, **kwargs):
