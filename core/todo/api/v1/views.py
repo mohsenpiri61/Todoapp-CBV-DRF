@@ -6,8 +6,7 @@ from rest_framework import viewsets
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 # import time 
-from django.http import JsonResponse
-import requests
+
 
 
 # @method_decorator(cache_page(60 * 60 * 2), 'dispatch')
@@ -18,7 +17,7 @@ class TodoListView(viewsets.ModelViewSet):
 
     
     def list(self, request):
-        # Note the use of 'get_queryset()' instead of 'self.queryset'
+        """ Note the use of 'get_queryset()' instead of 'self.queryset' """
         queryset = self.get_queryset()
         serializer = TaskSerializer(queryset, many=True)
         # time.sleep(5)
@@ -61,15 +60,3 @@ class TodoDetailApiView(viewsets.ModelViewSet):
             serializer.save()
         return Response(serializer.data)
 
-
-class GetWeatherAPI():
-    
-    def __init__(self, latitude, longitude):
-        self.lat= 36.0248825
-        self.lang= 50.7574084
-        
-    def get_current_weather(self):
-        base_url = "https://api.open-meteo.com/v1/forecast"
-        params = {"latitude": self.lat, "longitude": self.long, "current_weather":true}  
-        result = requests.get(base_url)
-        return JsonResponse(result.json())  
